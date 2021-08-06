@@ -23,12 +23,12 @@ class MainDialog(QtWidgets.QDialog):
     def display(cls):
         if not cls.INSTANCE:
             cls.INSTANCE = cls()  # type: MainDialog
-        cls.INSTANCE.restoreGeometry(cls.GEOMETRY)
         if cls.INSTANCE.isHidden():
             cls.INSTANCE.show()
         else:
             cls.INSTANCE.raise_()
             cls.INSTANCE.activateWindow()
+        cls.INSTANCE.restoreGeometry(cls.GEOMETRY)
 
     @classmethod
     def close_and_delete(cls):
