@@ -106,7 +106,7 @@ class MainDialog(QtWidgets.QDialog):
         for child in stack_children:
             if isinstance(child, pages.PageWidget):
                 category_item = QtWidgets.QListWidgetItem()
-                category_item.setText(child.category_name)
+                category_item.setText(child.CATEGORY_NAME)
                 self.category_list.addItem(category_item)
 
         # Action buttons

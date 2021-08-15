@@ -8,12 +8,14 @@ import luna.utils.devFn as devFn
 
 
 class PageWidget(QtWidgets.QWidget):
-    def __repr__(self):
-        return self.category_name
 
-    def __init__(self, parent=None, category_name="Category"):
+    CATEGORY_NAME = 'Category'
+
+    def __repr__(self):
+        return self.__class__.CATEGORY_NAME
+
+    def __init__(self, parent=None):
         super(PageWidget, self).__init__(parent)
-        self.category_name = category_name
         self.create_widgets()
         self.create_layouts()
         self.create_connections()
@@ -37,8 +39,7 @@ class PageWidget(QtWidgets.QWidget):
 
 
 class DeveloperPage(PageWidget):
-    def __init__(self, parent=None, category_name="Developer"):
-        super(DeveloperPage, self).__init__(parent=parent, category_name=category_name)
+    CATEGORY_NAME = "Developer"
 
     def create_widgets(self):
         self.logging_grp = QtWidgets.QGroupBox("Logging")
@@ -126,8 +127,8 @@ class DeveloperPage(PageWidget):
 
 
 class GeneralPage(PageWidget):
-    def __init__(self, parent=None, category_name="General"):
-        super(GeneralPage, self).__init__(parent=parent, category_name=category_name)
+
+    CATEGORY_NAME = "General"
 
     def create_widgets(self):
         # HUD
@@ -193,8 +194,8 @@ class GeneralPage(PageWidget):
 
 
 class RigPage(PageWidget):
-    def __init__(self, parent=None, category_name="Rig"):
-        super(RigPage, self).__init__(parent=parent, category_name=category_name)
+
+    CATEGORY_NAME = "Rig"
 
     def create_widgets(self):
         # Naming
